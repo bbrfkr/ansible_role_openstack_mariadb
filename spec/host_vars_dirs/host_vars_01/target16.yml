@@ -1,0 +1,3 @@
+openstack_mariadb:
+  listen_addr: 192.168.1.116
+  db_root_pass: p@ssw0rd

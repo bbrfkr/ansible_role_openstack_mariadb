@@ -1,0 +1,41 @@
+---
+- block:
+  - name: register openstack repository
+    yum:
+      name: centos-release-openstack-ocata
+      state: installed
+  
+  - name: install necessary packages
+    yum:
+      name: "{{ item }}"
+      state: installed
+    with_items:
+      - mariadb
+      - mariadb-server
+      - python2-PyMySQL
+      - expect
+  
+  - name: set mariadb config
+    template:
+      src: openstack.cnf.j2
+      dest: /etc/my.cnf.d/openstack.cnf
+    notify: restart mariadb
+  
+  - name: set mariadb service enabled and started
+    service:
+      name: mariadb
+      state: started
+      enabled: yes
+  become: yes
+
+- name: check mariadb's root user is protected with password
+  shell: mysql -uroot -e "show databases;"
+  changed_when: false
+  failed_when: false
+  register: reg_show_databases
+
+- name: execute mysql_secure_installation
+  script: mysql_secure_installation.sh {{ openstack_mariadb.db_root_pass }}
+  when:
+    - reg_show_databases.rc == 0
+

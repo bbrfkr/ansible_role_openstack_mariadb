@@ -1,0 +1,7 @@
+spec/inventory
+spec/site.retry
+spec/host_vars
+spec/roles/*
+!spec/roles/openstack_mariadb
+spec/roles/openstack_mariadb/*
+!**/.gitkeep
