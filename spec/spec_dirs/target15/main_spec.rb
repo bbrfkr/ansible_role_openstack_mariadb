@@ -11,7 +11,7 @@ require 'spec_helper'
 file_dir = File.dirname(__FILE__)
 
 describe ("check necessary packages are installed") do
-  packages = ["mariadb", "mariadb-server", "python2-PyMySQL"]
+  packages = ["mariadb", "mariadb-server", "python2-PyMySQL", "expect", "MySQL-python"]
   packages.each do |pkg|
     describe package(pkg) do
       it { should be_installed }
@@ -35,5 +35,11 @@ end
 describe ("check mariadb's root user is protected with password") do
   describe command("mysql -uroot -e \"show databases;\"") do
     its(:exit_status) { should_not eq 0 }
+  end
+end
+
+describe ("check permissions for root user from any remote host") do
+  describe command("mysql -u root -pp@ssw0rd -e \"show grants for root@'%';\"") do
+    its(:stdout) { should match /^\|\sGRANT ALL PRIVILEGES ON \*\.\* TO 'root'@'%' IDENTIFIED BY PASSWORD '.*' WITH GRANT OPTION\s\|$/ }
   end
 end

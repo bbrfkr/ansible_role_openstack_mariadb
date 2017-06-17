@@ -16,3 +16,8 @@ describe ("check mariadb process listening on ip #{ ENV['CONN_HOST'] }:3306 ") d
   end
 end
 
+describe ("check non-permissions for root user from any remote host") do
+  describe command("mysql -u root -pp@ssw0rd -e \"show grants for root@'%';\"") do
+    its(:stdout) { should match /There is no such grant defined for user 'root' on host '%'/ }
+  end
+end

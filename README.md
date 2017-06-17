@@ -11,6 +11,7 @@ This role executes the following settings.
   * set mariadb config
   * set mariadb service enabled and started
   * execute mysql_secure_installation
+  * set mariadb allowed for root user to connect from remote host
 
 ## Caution!!
 * This role assumpts a part of network settings (nics, default gateway and dns server) is completed.
@@ -28,8 +29,10 @@ This role executes the following settings.
 ## Role variables
 ```
 openstack_mariadb:
-  listen_addr: 192.168.1.115  # address on which mariadb service listens
-  db_root_pass: p@ssw0rd      # password of MariaDB's root user
+  listen_addr: 192.168.1.115      # address on which mariadb service listens
+  db_root_pass: p@ssw0rd          # password of MariaDB's root user
+  allow_connect_from_remote: yes  # whether allow to connect from remote host or not
+  allowed_host_to_connect: "%"    # allowed host for MariaDB's root user to connect
 ```
 
 ## Dependencies
