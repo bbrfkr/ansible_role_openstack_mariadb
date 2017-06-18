@@ -30,7 +30,7 @@ This role executes the following settings.
 ```
 openstack_mariadb:
   listen_addr: 192.168.1.115      # address on which mariadb service listens
-  db_root_pass: p@ssw0rd          # password of MariaDB's root user
+  db_root_pass: password          # password of MariaDB's root user
   remote_connect:                 # settings for remote connect (optional)
     remote_host: "%"              # target host for connecting remotely
     allow_connect: yes            # whether allow to connect from remote host or not
