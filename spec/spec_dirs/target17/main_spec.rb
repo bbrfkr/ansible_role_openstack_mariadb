@@ -27,3 +27,4 @@ describe ("check non-permissions for root user from any remote host") do
     its(:stdout) { should match /There is no such grant defined for user 'root' on host '%'/ }
   end
 end
+

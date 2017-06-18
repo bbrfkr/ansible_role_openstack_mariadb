@@ -1,3 +1,19 @@
+openstack_common:
+  hostname: controller02
+  allowed_sync: yes
+  hosts:
+    - name: controller01
+      ip: 192.168.1.115
+    - name: controller02
+      ip: 192.168.1.116
+    - name: controller03
+      ip: 192.168.1.116
+  ntp_servers:
+    - '0.jp.pool.ntp.org'
+    - '1.jp.pool.ntp.org'
+  allowed_addr_for_chrony: 192.168.1.0/25
+  exec_yum_update: yes
+
 openstack_mariadb:
   listen_addr: 192.168.1.116
   db_root_pass: p@ssw0rd

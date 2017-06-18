@@ -32,6 +32,17 @@ def copy_role_for_spec
   FileUtils.cp_r(copy_targets, copy_dest)
 end
 
+def clone_common_role_for_spec
+  copy_dest = "spec/roles/bbrfkr.openstack_common"
+  if not Dir.exist?(copy_dest)
+    FileUtils.mkdir_p(copy_dest)
+  end
+  delete_targets = Dir.glob(copy_dest)
+  FileUtils.rm_rf(delete_targets)
+  system("cd spec/roles && git clone https://github.com/bbrfkr/ansible_role_openstack_common.git bbrfkr.openstack_common")
+  system("cd spec/roles/bbrfkr.openstack_common && git checkout -b ocata origin/ocata")
+end
+
 task :default => :spec
 task :spec => 'spec:all'
 
@@ -46,6 +57,7 @@ namespace :spec do
   task :all => conn_hosts
 
   copy_role_for_spec
+  clone_common_role_for_spec
 
   connections.each do |connection|
 
