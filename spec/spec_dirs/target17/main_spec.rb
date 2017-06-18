@@ -10,9 +10,9 @@ system("cd spec && ansible-playbook -i inventory site.yml")
 require 'spec_helper'
 file_dir = File.dirname(__FILE__)
 
-describe ("check mariadb process listening on ip 192.168.1.116:3306 ") do
+describe ("check mariadb process listening on ip 192.168.1.117:3306 ") do
   describe port(3306) do
-    it { should be_listening.on("192.168.1.116") }
+    it { should be_listening.on("192.168.1.117") }
   end
 end
 

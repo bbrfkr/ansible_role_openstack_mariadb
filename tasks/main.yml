@@ -43,11 +43,12 @@
 - name: set mariadb allowed for root user to connect from remote host
   mysql_user:
     name: root
-    host: "{{ openstack_mariadb.allowed_host_to_connect }}"
+    host: "{{ openstack_mariadb.remote_connect.remote_host }}"
     password: "{{ openstack_mariadb.db_root_pass }}"
     priv: "*.*:ALL,GRANT"
     login_user: root
     login_password: "{{ openstack_mariadb.db_root_pass }}"
+    state: "{{ openstack_mariadb.remote_connect.allow_connect | ternary('present', 'absent') }}"
   when:
-    - openstack_mariadb.allow_connect_from_remote == true
+    - openstack_mariadb.remote_connect is defined
 
