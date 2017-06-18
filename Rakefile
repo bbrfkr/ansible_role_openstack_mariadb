@@ -21,7 +21,7 @@ def generate_ansible_inventory(name, host, port, user, pass, idkey, sudo_pass)
 end
 
 def copy_role_for_spec
-  copy_dest = "spec/roles/openstack_mariadb"
+  copy_dest = "spec/roles/bbrfkr.openstack_mariadb"
   if not Dir.exist?(copy_dest)
     FileUtils.mkdir_p(copy_dest)
   end
