@@ -7,7 +7,7 @@ openstack_common:
     - name: controller02
       ip: 192.168.1.116
     - name: controller03
-      ip: 192.168.1.116
+      ip: 192.168.1.117
   ntp_servers:
     - '0.jp.pool.ntp.org'
     - '1.jp.pool.ntp.org'
