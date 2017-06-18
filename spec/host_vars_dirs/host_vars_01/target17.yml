@@ -15,5 +15,5 @@ openstack_common:
 
 openstack_mariadb:
   listen_addr: 192.168.1.117
-  db_root_pass: p@ssw0rd
+  db_root_pass: password
 

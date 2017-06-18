@@ -39,7 +39,7 @@ describe ("check mariadb's root user is protected with password") do
 end
 
 describe ("check permissions for root user from any remote host") do
-  describe command("mysql -u root -pp@ssw0rd -e \"show grants for root@'%';\"") do
+  describe command("mysql -u root -ppassword -e \"show grants for root@'%';\"") do
     its(:stdout) { should match /^\|\sGRANT ALL PRIVILEGES ON \*\.\* TO 'root'@'%' IDENTIFIED BY PASSWORD '.*' WITH GRANT OPTION\s\|$/ }
   end
 end
