@@ -48,7 +48,7 @@ openstack_mariadb:
 ## Retest
 This role is tested by serverspec, then its test codes are included in repository. Users can retest this role by using the test codes. To retest this role, follow the steps described below.
 
-1. Prepare targets (Here, targets ip are X.X.X.X, Y.Y.Y.Y, Z.Z.Z.Z)
+1. Prepare 3 targets (Here, targets ip are X.X.X.X, Y.Y.Y.Y, Z.Z.Z.Z)
 2. Install serverspec in local machine
 3. Modify spec/inventory.yml
 ```
