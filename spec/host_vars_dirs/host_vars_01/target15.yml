@@ -1,6 +1,6 @@
 openstack_common:
   hostname: controller01
-  allowed_sync: yes
+  allowed_sync: no
   hosts:
     - name: controller01
       ip: 192.168.1.115
@@ -11,7 +11,6 @@ openstack_common:
   ntp_servers:
     - '0.jp.pool.ntp.org'
     - '1.jp.pool.ntp.org'
-  allowed_addr_for_chrony: 192.168.1.0/25
   exec_yum_update: yes
 
 openstack_mariadb:
