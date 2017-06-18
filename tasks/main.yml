@@ -1,10 +1,5 @@
 ---
 - block:
-  - name: register openstack repository
-    yum:
-      name: centos-release-openstack-ocata
-      state: installed
-  
   - name: install necessary packages
     yum:
       name: "{{ item }}"

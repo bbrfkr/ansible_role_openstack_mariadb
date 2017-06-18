@@ -26,7 +26,7 @@ describe ("check mariadb service is enabled and started") do
   end
 end
 
-describe ("check mariadb process listening on ip 192.168.1.115:3306 ") do
+describe ("check mariadb process listening on ip 192.168.1.115:3306") do
   describe port(3306) do
     it { should be_listening.on("192.168.1.115") }
   end
