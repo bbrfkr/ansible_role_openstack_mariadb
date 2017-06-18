@@ -37,7 +37,7 @@ openstack_mariadb:
 ```
 
 ## Dependencies
-None
+- [bbrfkr.openstack_common](https://galaxy.ansible.com/bbrfkr/openstack_common/)
 
 ## Build status
 |branch|status|
