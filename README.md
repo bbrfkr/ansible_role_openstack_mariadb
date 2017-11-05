@@ -31,14 +31,14 @@ This role executes the following settings.
 ```
 openstack_mariadb:
   listen_addr: 192.168.1.115      # address on which mariadb service listens
-  db_root_pass: p@ssw0rd          # password of MariaDB's root user
+  db_root_pass: password          # password of MariaDB's root user
   remote_connect:                 # settings for remote connect (optional)
     remote_host: "%"              # target host for connecting remotely
     allow_connect: yes            # whether allow to connect from remote host or not
 ```
 
 ## Dependencies
-None
+- [bbrfkr.openstack_common](https://galaxy.ansible.com/bbrfkr/openstack_common/)
 
 ## Build status
 |branch|status|
@@ -50,7 +50,7 @@ None
 ## Retest
 This role is tested by serverspec, then its test codes are included in repository. Users can retest this role by using the test codes. To retest this role, follow the steps described below.
 
-1. Prepare targets (Here, targets ip are X.X.X.X, Y.Y.Y.Y, Z.Z.Z.Z)
+1. Prepare 3 targets (Here, targets ip are X.X.X.X, Y.Y.Y.Y, Z.Z.Z.Z)
 2. Install serverspec in local machine
 3. Modify spec/inventory.yml
 ```
