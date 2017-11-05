@@ -40,7 +40,7 @@ def clone_common_role_for_spec
   delete_targets = Dir.glob(copy_dest)
   FileUtils.rm_rf(delete_targets)
   system("cd spec/roles && git clone https://github.com/bbrfkr/ansible_role_openstack_common.git bbrfkr.openstack_common")
-  system("cd spec/roles/bbrfkr.openstack_common && git checkout -b ocata origin/ocata")
+  system("cd spec/roles/bbrfkr.openstack_common && git checkout -b pike origin/pike")
 end
 
 task :default => :spec
